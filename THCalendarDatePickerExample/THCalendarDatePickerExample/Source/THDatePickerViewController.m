@@ -160,11 +160,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(semiModalDidHide:)
-                                                 name:kSemiModalDidHideNotification
-                                               object:nil];
-    
+        
     self.titleLabel.hidden = YES;
     
     [self configureButtonAppearances];

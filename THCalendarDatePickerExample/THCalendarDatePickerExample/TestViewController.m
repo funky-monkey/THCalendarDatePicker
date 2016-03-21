@@ -51,12 +51,14 @@
         int tmp = (arc4random() % 30)+1;
         return (tmp % 5 == 0);
     }];
+    
+    [self presentViewController:self.datePicker animated:YES completion:nil];
     //[self.datePicker slideUpInView:self.view withModalColor:[UIColor lightGrayColor]];
-    [self presentSemiViewController:self.datePicker withOptions:@{
-                                                                  KNSemiModalOptionKeys.pushParentBack    : @(NO),
-                                                                  KNSemiModalOptionKeys.animationDuration : @(1.0),
-                                                                  KNSemiModalOptionKeys.shadowOpacity     : @(0.3),
-                                                                  }];
+//    [self presentSemiViewController:self.datePicker withOptions:@{
+//                                                                  KNSemiModalOptionKeys.pushParentBack    : @(NO),
+//                                                                  KNSemiModalOptionKeys.animationDuration : @(1.0),
+//                                                                  KNSemiModalOptionKeys.shadowOpacity     : @(0.3),
+//                                                                  }];
 }
 
 #pragma mark - THDatePickerDelegate
@@ -64,11 +66,12 @@
 - (void)datePickerDonePressed:(THDatePickerViewController *)datePicker {
     self.curDate = datePicker.date;
     [self refreshTitle];
-    [self dismissSemiModalView];
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)datePickerCancelPressed:(THDatePickerViewController *)datePicker {
-    [self dismissSemiModalView];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)datePicker:(THDatePickerViewController *)datePicker selectedDate:(NSDate *)selectedDate {
