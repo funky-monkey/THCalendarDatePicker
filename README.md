@@ -10,8 +10,8 @@ The original controller was not aware of orientation changes and was missing som
 
 # Screenshots
 
-![iPhone Portrait](./Screenshots/Screenshot1.png?raw=true  | width=300)
-![iPhone Landscape](./Screenshots/Screenshot2.png?raw=true | width=300)
+![iPhone Portrait](/Screenshots/Screenshot1.png | width=300)
+![iPhone Landscape](/Screenshots/Screenshot2.png | width=300)
 
 # Installation
 
