@@ -1,20 +1,17 @@
 THCalendarDatePicker
 ===
 
-[![Build Status](https://travis-ci.org/hons82/THCalendarDatePicker.png)](https://travis-ci.org/hons82/THCalendarDatePicker)
-[![Pod Version](http://img.shields.io/cocoapods/v/THCalendarDatePicker.svg?style=flat)](http://cocoadocs.org/docsets/THCalendarDatePicker/)
-[![Pod Platform](http://img.shields.io/cocoapods/p/THCalendarDatePicker.svg?style=flat)](http://cocoadocs.org/docsets/THCalendarDatePicker/)
 [![Pod License](http://img.shields.io/cocoapods/l/THCalendarDatePicker.svg?style=flat)](http://opensource.org/licenses/MIT)
-[![Coverage Status](https://coveralls.io/repos/hons82/THCalendarDatePicker/badge.svg)](https://coveralls.io/r/hons82/THCalendarDatePicker)
 
-This control is based on the [datepicker-ios](https://github.com/ccwasden/datepicker-ios) control combined with the [KNSemiModalViewController](https://github.com/kentnguyen/KNSemiModalViewController).
 
-The original controller was not aware of orientation changes and was missing some customization features that I needed for my project, so I decided to rewrite part of the controller to fit to my needs
+This control is based on the [datepicker-ios](https://github.com/ccwasden/datepicker-ios) control and the [KNSemiModalViewController](https://github.com/kentnguyen/KNSemiModalViewController) has been stripped out.
+
+The original controller was not aware of orientation changes and was missing some customization features that I needed for my project, so I decided to rewrite part of the controller to fit to my needs.
 
 # Screenshots
 
-![iPhone Portrait](/Screenshots/Screenshot1.png?raw=true)
-![iPhone Landscape](/Screenshots/Screenshot2.png?raw=true)
+![iPhone Portrait](./Screenshots/Screenshot1.png?raw=true  | width=300)
+![iPhone Landscape](./Screenshots/Screenshot2.png?raw=true | width=300)
 
 # Installation
 
