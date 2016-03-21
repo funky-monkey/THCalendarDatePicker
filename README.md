@@ -21,23 +21,17 @@ Install with [CocoaPods](http://cocoapods.org) by adding the following to your P
 
 ####Objective-C
 
-``` ruby
-platform :ios, '6.1'
-pod 'THCalendarDatePicker', '~> 1.2.6'
+```
+platform :ios, '8.0'
+pod 'THCalendarDatePicker', :git => 'https://github.com/funky-monkey/THCalendarDatePicker.git'
 ```
 ####Swift
 
-``` ruby
+```
 platform :ios, '8.0'
 use_frameworks!
-pod 'THCalendarDatePicker', '~> 1.2.6'
+pod 'THCalendarDatePicker', :git => 'https://github.com/funky-monkey/THCalendarDatePicker.git'
 ```
-
-**Note**: We follow http://semver.org for versioning the public API.
-
-### Manually
-
-Or copy the `THCalendarDatePicker/` directory from this repo into your project. As it is using the [KNSemiModalViewController](https://github.com/kentnguyen/KNSemiModalViewController) internally as dependency you'll need to add and wire those files as well.
 
 # Usage
 
@@ -106,44 +100,6 @@ or how you could do it in Swift
             ])
     }
 ```
-
-# Features
-
-### V1.2.X
-
-- Fixed issue [#28](https://github.com/hons82/THCalendarDatePicker/issues/28)
-- Fixed issue [#30](https://github.com/hons82/THCalendarDatePicker/issues/30)
-- Fixed issue [#69](https://github.com/hons82/THCalendarDatePicker/issues/69)
-- Pull request [#40](https://github.com/hons82/THCalendarDatePicker/pull/40)
-- Pull request [#41](https://github.com/hons82/THCalendarDatePicker/pull/41)
-- Pull request [#53](https://github.com/hons82/THCalendarDatePicker/pull/53) 
-- Pull request [#70](https://github.com/hons82/THCalendarDatePicker/pull/70) 
-
-### V1.1.X
-
-- Fixed issue [#29](https://github.com/hons82/THCalendarDatePicker/issues/29)
-- Fixed issue [#27](https://github.com/hons82/THCalendarDatePicker/issues/27)
-
-### V1.0.X
-
-- Fixed issue [#23](https://github.com/hons82/THCalendarDatePicker/issues/23) 
-- Fixed issue [#22](https://github.com/hons82/THCalendarDatePicker/issues/22) 
-- Pull request [#21](https://github.com/hons82/THCalendarDatePicker/pull/21), [#20](https://github.com/hons82/THCalendarDatePicker/pull/20) 
-- Fixed issues [#18](https://github.com/hons82/THCalendarDatePicker/issues/18), [#17](https://github.com/hons82/THCalendarDatePicker/issues/17), [#16](https://github.com/hons82/THCalendarDatePicker/issues/16), [#15](https://github.com/hons82/THCalendarDatePicker/issues/15) 
-- Pull request [#13](https://github.com/hons82/THCalendarDatePicker/pull/13)
-- iOS8 deprecation warnings removed
-- Fixed issues [#12](https://github.com/hons82/THCalendarDatePicker/issues/12), [#11](https://github.com/hons82/THCalendarDatePicker/issues/11), [#7](https://github.com/hons82/THCalendarDatePicker/issues/7), [#5](https://github.com/hons82/THCalendarDatePicker/issues/5) 
-- Bugfix (Now it's taking the default starting day for the locale; but not the custom setting "Week starts on")
-- Configurable if it should show future entries 
-- Select a Date from Calendar
-- Awareness of the setting 4 the first weekday
-- Configurable Colors
-- Configurable if it should be allowed to clear the selection
-- Configurable if it should close on selection or not
-
-### Future
-
-- reduce size of control if "hasItemCallback" is not used/disabled
 
 #Contributions
 
