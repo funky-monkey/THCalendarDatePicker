@@ -17,7 +17,7 @@
 @synthesize selectedBackgroundColor = _selectedBackgroundColor;
 @synthesize currentDateColor = _currentDateColor;
 @synthesize currentDateColorSelected = _currentDateColorSelected;
-@synthesize rounded = _rounded;
+@synthesize dayCornersAreRounded = _rounded;
 
 - (id)initWithFrame:(CGRect)frame {
     
@@ -33,7 +33,9 @@
 }
 
 - (void)layoutSubviews {
+    
     [super layoutSubviews];
+    
     if ([self isRounded]) {
         [self addMaskToBounds:self.frame];
     }
@@ -46,11 +48,9 @@
     if(light) {
         UIColor * color = [UIColor colorWithWhite:.84 alpha:1];
         [self.dateButton setTitleColor:color forState:UIControlStateNormal];
-        self.hasItemsIndicator.image = (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0") ? [UIImage imageNamed:@"calendar_littledot-disabled" inBundle:[NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil] : [UIImage imageNamed:@"calendar_littledot-disabled"]);
     } else {
         UIColor * color = [UIColor colorWithWhite:.3 alpha:1];
         [self.dateButton setTitleColor:color forState:UIControlStateNormal];
-        self.hasItemsIndicator.image = (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0") ? [UIImage imageNamed:@"calendar_littledot" inBundle:[NSBundle bundleForClass:self.class] compatibleWithTraitCollection:nil] : [UIImage imageNamed:@"calendar_littledot"]);
     }
     [self setCurrentColors];
 }
@@ -92,10 +92,6 @@
     if (!enabled) {
         [self setLightText:!enabled];
     }
-}
-
--(void)indicateDayHasItems:(BOOL)indicate {
-    self.hasItemsIndicator.hidden = !indicate;
 }
 
 - (BOOL)isToday {

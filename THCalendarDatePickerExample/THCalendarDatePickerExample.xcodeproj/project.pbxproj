@@ -13,6 +13,7 @@
 		2E23CF981CA0569D003AC60A /* THDateDay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E23CF911CA0569D003AC60A /* THDateDay.xib */; };
 		2E23CF991CA0569D003AC60A /* THDatePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E23CF931CA0569D003AC60A /* THDatePickerViewController.m */; };
 		2E23CF9A1CA0569D003AC60A /* THDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2E23CF941CA0569D003AC60A /* THDatePickerViewController.xib */; };
+		2EA432D81CA1696300BFF2DB /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2EA432D71CA1696300BFF2DB /* Default-568h@2x.png */; };
 		99A0252D198A40C100764326 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99A0252C198A40C100764326 /* Foundation.framework */; };
 		99A0252F198A40C100764326 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99A0252E198A40C100764326 /* CoreGraphics.framework */; };
 		99A02531198A40C100764326 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99A02530198A40C100764326 /* UIKit.framework */; };
@@ -48,6 +49,7 @@
 		2E23CF921CA0569D003AC60A /* THDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = THDatePickerViewController.h; path = Source/THDatePickerViewController.h; sourceTree = "<group>"; };
 		2E23CF931CA0569D003AC60A /* THDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = THDatePickerViewController.m; path = Source/THDatePickerViewController.m; sourceTree = "<group>"; };
 		2E23CF941CA0569D003AC60A /* THDatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = THDatePickerViewController.xib; path = Source/THDatePickerViewController.xib; sourceTree = "<group>"; };
+		2EA432D71CA1696300BFF2DB /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		99A02529198A40C100764326 /* THCalendarDatePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = THCalendarDatePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99A0252C198A40C100764326 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		99A0252E198A40C100764326 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -111,6 +113,7 @@
 		99A02520198A40C100764326 = {
 			isa = PBXGroup;
 			children = (
+				2EA432D71CA1696300BFF2DB /* Default-568h@2x.png */,
 				99A02532198A40C100764326 /* THCalendarDatePickerExample */,
 				99A02551198A40C100764326 /* THCalendarDatePickerExampleTests */,
 				99A0252B198A40C100764326 /* Frameworks */,
@@ -262,6 +265,7 @@
 				2E23CF981CA0569D003AC60A /* THDateDay.xib in Resources */,
 				99A02537198A40C100764326 /* InfoPlist.strings in Resources */,
 				99A02540198A40C100764326 /* Main.storyboard in Resources */,
+				2EA432D81CA1696300BFF2DB /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

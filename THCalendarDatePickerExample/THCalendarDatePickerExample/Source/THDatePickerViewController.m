@@ -11,7 +11,7 @@
 #import "NSDate+Difference.h"
 
 #ifdef DEBUG
-//static int FIRST_WEEKDAY = 2;
+static int FIRST_WEEKDAY = 2;
 #endif
 
 @interface THDatePickerViewController () {
@@ -46,8 +46,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *monthLabel;
 @property (weak, nonatomic) IBOutlet UIButton *nextMonthBtn;
 @property (weak, nonatomic) IBOutlet UIButton *prevMonthBtn;
-@property (weak, nonatomic) IBOutlet UIButton *nextYearBtn;
-@property (weak, nonatomic) IBOutlet UIButton *prevYearBtn;
 @property (weak, nonatomic) IBOutlet UIButton *closeBtn;
 @property (weak, nonatomic) IBOutlet UIButton *clearBtn;
 @property (weak, nonatomic) IBOutlet UIButton *okBtn;
@@ -57,8 +55,6 @@
 
 - (IBAction)nextMonthPressed:(id)sender;
 - (IBAction)prevMonthPressed:(id)sender;
-- (IBAction)nextYearPressed:(id)sender;
-- (IBAction)prevYearPressed:(id)sender;
 - (IBAction)okPressed:(id)sender;
 - (IBAction)clearPressed:(id)sender;
 - (IBAction)closePressed:(id)sender;
@@ -74,7 +70,7 @@
 @synthesize currentDateColorSelected = _currentDateColorSelected;
 @synthesize autoCloseCancelDelay = _autoCloseCancelDelay;
 @synthesize dateTimeZone = _dateTimeZone;
-@synthesize rounded = _rounded;
+@synthesize dayCornersAreRounded = _rounded;
 @synthesize historyFutureBasedOnInternal = _historyFutureBasedOnInternal;
 @synthesize slideAnimationDuration = _slideAnimationDuration;
 @synthesize selectedDates = _selectedDates;
@@ -221,13 +217,13 @@
     
     //Gesture detect - swipe up/down , can be recognized direction
     if(sender.direction == UISwipeGestureRecognizerDirectionUp){
-        [self nextMonthPressed:sender];
+        // Do nothing
     } else if(sender.direction == UISwipeGestureRecognizerDirectionDown){
-        [self prevMonthPressed:sender];
+        // Do nothing
     } else if(sender.direction == UISwipeGestureRecognizerDirectionRight){
-        [self prevYearPressed:sender];
+        [self prevMonthPressed:sender];
     } else {
-        [self nextYearPressed:sender];
+        [self nextMonthPressed:sender];
     }
 }
 
@@ -237,8 +233,6 @@
     
     [[self.nextMonthBtn imageView] setContentMode: UIViewContentModeScaleAspectFit];
     [[self.prevMonthBtn imageView] setContentMode: UIViewContentModeScaleAspectFit];
-    [[self.nextYearBtn imageView] setContentMode: UIViewContentModeScaleAspectFit];
-    [[self.prevYearBtn imageView] setContentMode: UIViewContentModeScaleAspectFit];
     [[self.clearBtn imageView] setContentMode: UIViewContentModeScaleAspectFit];
     [[self.closeBtn imageView] setContentMode: UIViewContentModeScaleAspectFit];
     [[self.okBtn imageView] setContentMode: UIViewContentModeScaleAspectFit];
@@ -251,12 +245,8 @@
     img = [self imageOfColor:[UIColor colorWithWhite:.94 alpha:1]];
     [self.nextMonthBtn setBackgroundImage:img forState:UIControlStateHighlighted];
     [self.prevMonthBtn setBackgroundImage:img forState:UIControlStateHighlighted];
-    [self.nextYearBtn setBackgroundImage:img forState:UIControlStateHighlighted];
-    [self.prevYearBtn setBackgroundImage:img forState:UIControlStateHighlighted];
     
     // Hide Buttons if not active
-    [self.nextMonthBtn setHidden:_disableYearSwitch];
-    [self.prevMonthBtn setHidden:_disableYearSwitch];
 }
 
 - (UIImage *)imageOfColor:(UIColor *)color {
@@ -307,7 +297,7 @@
     formatter.locale=[NSLocale currentLocale];
     
     NSString *monthName = [formatter stringFromDate:self.firstOfCurrentMonth];
-    self.monthLabel.text = monthName;
+    self.monthLabel.text = [monthName uppercaseString];
     
     if (self.dateTitle != nil && _allowClearDate == NO) {
         self.titleLabel.text = self.dateTitle;
@@ -349,7 +339,7 @@
         THDateDay * day = [[[NSBundle bundleForClass:self.class] loadNibNamed:@"THDateDay" owner:self options:nil] objectAtIndex:0];
         
         if ([self isRounded]) {
-            [day setRounded:YES];
+            [day setDayCornersAreRounded:YES];
         }
         
         day.frame = CGRectMake(curX, curY, cellWidth, cellHeight);
@@ -381,7 +371,6 @@
         
         [day setLightText:![self dateInCurrentMonth:date]];
         [day setEnabled:![self dateInFutureAndShouldBeDisabled:date]];
-        [day indicateDayHasItems:(_dateHasItemsCallback && _dateHasItemsCallback(date))];
         
         NSDateComponents *comps = [_calendar components:NSCalendarUnitDay fromDate:date];
         [day.dateButton setTitle:[NSString stringWithFormat:@"%ld",(long)[comps day]]
@@ -549,7 +538,7 @@
     
     NSCalendar *c = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
 #ifdef DEBUG
-//    [c setFirstWeekday:2];
+    [c setFirstWeekday:FIRST_WEEKDAY];
 #endif
     NSRange days = [c rangeOfUnit:NSCalendarUnitDay
                            inUnit:NSCalendarUnitMonth
@@ -708,21 +697,11 @@
 /* If _disableYearSwitch is true, then only the month switches are active, and they'll swipe left and right only */
 
 - (IBAction)nextMonthPressed:(id)sender {
-    [self incrementMonth:1];
-    [self slideTransitionViewInDirection:(_disableYearSwitch ? UISwipeGestureRecognizerDirectionLeft : UISwipeGestureRecognizerDirectionUp)];
-}
-
-- (IBAction)prevMonthPressed:(id)sender {
-    [self incrementMonth:-1];
-    [self slideTransitionViewInDirection:(_disableYearSwitch ? UISwipeGestureRecognizerDirectionRight : UISwipeGestureRecognizerDirectionDown)];
-}
-
-- (IBAction)nextYearPressed:(id)sender {
     [self incrementMonth:(_disableYearSwitch ? 1 : 12)];
     [self slideTransitionViewInDirection:UISwipeGestureRecognizerDirectionLeft];
 }
 
-- (IBAction)prevYearPressed:(id)sender {
+- (IBAction)prevMonthPressed:(id)sender {
     [self incrementMonth:(_disableYearSwitch ? -1 : -12)];
     [self slideTransitionViewInDirection:UISwipeGestureRecognizerDirectionRight];
 }

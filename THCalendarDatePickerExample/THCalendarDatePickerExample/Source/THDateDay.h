@@ -21,7 +21,6 @@
 
 @property (weak, nonatomic) id<THDateDayDelegate> delegate;
 
-@property (weak, nonatomic) IBOutlet UIImageView *hasItemsIndicator;
 @property (weak, nonatomic) IBOutlet UIButton *dateButton;
 
 @property (strong, nonatomic) NSDate *date;
@@ -30,13 +29,12 @@
 @property (strong, nonatomic) UIColor *currentDateColor;
 @property (strong, nonatomic) UIColor *currentDateColorSelected;
 
-@property (nonatomic, getter=isRounded) BOOL rounded;
+@property (nonatomic, getter=isRounded) BOOL dayCornersAreRounded;
 
 - (IBAction)dateButtonTapped:(id)sender;
 
 - (void)setLightText:(BOOL)light;
 - (void)setSelected:(BOOL)selected;
 - (void)setEnabled:(BOOL)enabled;
-- (void)indicateDayHasItems:(BOOL)indicate;
 
 @end
