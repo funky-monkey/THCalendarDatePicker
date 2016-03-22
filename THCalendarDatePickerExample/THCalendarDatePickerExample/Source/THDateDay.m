@@ -20,6 +20,7 @@
 @synthesize rounded = _rounded;
 
 - (id)initWithFrame:(CGRect)frame {
+    
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
@@ -31,12 +32,6 @@
     return self;
 }
 
-/*
-- (void)drawRect:(CGRect)rect {
-    self.layer.cornerRadius = MIN(self.layer.frame.size.height, self.layer.frame.size.width)/2; // this value vary as per your desire
-    self.clipsToBounds = YES;
-}*/
-
 - (void)layoutSubviews {
     [super layoutSubviews];
     if ([self isRounded]) {
@@ -47,6 +42,7 @@
 #pragma mark -
 
 -(void)setLightText:(BOOL)light {
+    
     if(light) {
         UIColor * color = [UIColor colorWithWhite:.84 alpha:1];
         [self.dateButton setTitleColor:color forState:UIControlStateNormal];
@@ -64,6 +60,7 @@
 }
 
 -(void)setSelected:(BOOL)selected {
+    
     if(selected) {
         [self setBackgroundColor:self.selectedBackgroundColor];
         [self.dateButton setSelected:YES];
@@ -78,16 +75,20 @@
 }
 
 - (void)setCurrentColors {
+    
     if (self.currentDateColor && [self isToday]) {
         [self.dateButton setTitleColor:self.currentDateColor forState:UIControlStateNormal];
     }
+    
     if (self.currentDateColorSelected && [self isToday]) {
         [self.dateButton setTitleColor:self.currentDateColorSelected forState:UIControlStateSelected];
     }
 }
 
 -(void)setEnabled:(BOOL)enabled {
+    
     [self.dateButton setEnabled:enabled];
+    
     if (!enabled) {
         [self setLightText:!enabled];
     }
@@ -98,8 +99,10 @@
 }
 
 - (BOOL)isToday {
+    
     NSDateComponents *otherDay = [[NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian] components:NSCalendarUnitEra|NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:self.date];
     NSDateComponents *today = [[NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian] components:NSCalendarUnitEra|NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:[NSDate date]];
+    
     return ([today day] == [otherDay day] &&
             [today month] == [otherDay month] &&
             [today year] == [otherDay year] &&
@@ -108,16 +111,20 @@
 
 #pragma mark - Circular mask
 
-- (void)addMaskToBounds:(CGRect)maskBounds {
+- (void) addMaskToBounds:(CGRect) maskBounds {
+    
     int minWidthHeight = MIN(maskBounds.size.width, maskBounds.size.height);
+    
     CGRect newFrame = CGRectMake(maskBounds.origin.x + ceil((maskBounds.size.width - minWidthHeight)/2.0), maskBounds.origin.y + ceil((maskBounds.size.height - minWidthHeight)/2.0), minWidthHeight, minWidthHeight);
     NSLog(@"x: %f, y: %f, width: %f, height: %f", newFrame.origin.x, newFrame.origin.y, newFrame.size.width, newFrame.size.height);
     
     CGPathRef maskPath = CGPathCreateWithEllipseInRect(newFrame, NULL);
     CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+    
     maskLayer.bounds = newFrame;
     maskLayer.path = maskPath;
     maskLayer.fillColor = [UIColor blackColor].CGColor;
+    
     CGPathRelease(maskPath);
     
     CGPoint point = CGPointMake(maskBounds.size.width/2, maskBounds.size.height/2);

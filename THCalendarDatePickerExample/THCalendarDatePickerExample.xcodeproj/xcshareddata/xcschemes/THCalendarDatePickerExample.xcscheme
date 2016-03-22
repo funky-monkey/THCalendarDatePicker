@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "99A02528198A40C100764326"
-               BuildableName = "THCalendarDatePickerExample.app"
-               BlueprintName = "THCalendarDatePickerExample"
+               BuildableName = "THCalendarDatePicker.app"
+               BlueprintName = "THCalendarDatePicker"
                ReferencedContainer = "container:THCalendarDatePickerExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -29,8 +29,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "99A02549198A40C100764326"
-               BuildableName = "THCalendarDatePickerExampleTests.xctest"
-               BlueprintName = "THCalendarDatePickerExampleTests"
+               BuildableName = "THCalendarDatePickerTests.xctest"
+               BlueprintName = "THCalendarDatePickerTests"
                ReferencedContainer = "container:THCalendarDatePickerExample.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,8 +47,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "99A02549198A40C100764326"
-               BuildableName = "THCalendarDatePickerExampleTests.xctest"
-               BlueprintName = "THCalendarDatePickerExampleTests"
+               BuildableName = "THCalendarDatePickerTests.xctest"
+               BlueprintName = "THCalendarDatePickerTests"
                ReferencedContainer = "container:THCalendarDatePickerExample.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -57,8 +57,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "99A02528198A40C100764326"
-            BuildableName = "THCalendarDatePickerExample.app"
-            BlueprintName = "THCalendarDatePickerExample"
+            BuildableName = "THCalendarDatePicker.app"
+            BlueprintName = "THCalendarDatePicker"
             ReferencedContainer = "container:THCalendarDatePickerExample.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -80,8 +80,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "99A02528198A40C100764326"
-            BuildableName = "THCalendarDatePickerExample.app"
-            BlueprintName = "THCalendarDatePickerExample"
+            BuildableName = "THCalendarDatePicker.app"
+            BlueprintName = "THCalendarDatePicker"
             ReferencedContainer = "container:THCalendarDatePickerExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -99,8 +99,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "99A02528198A40C100764326"
-            BuildableName = "THCalendarDatePickerExample.app"
-            BlueprintName = "THCalendarDatePickerExample"
+            BuildableName = "THCalendarDatePicker.app"
+            BlueprintName = "THCalendarDatePicker"
             ReferencedContainer = "container:THCalendarDatePickerExample.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

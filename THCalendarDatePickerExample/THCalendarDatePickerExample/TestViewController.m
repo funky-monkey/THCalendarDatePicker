@@ -16,10 +16,15 @@
 @implementation TestViewController
 
 - (void)viewDidLoad {
+    
+    [self.view setBackgroundColor:[UIColor whiteColor]];
     [super viewDidLoad];
+    
     self.curDate = [NSDate date];
+    
     self.formatter = [[NSDateFormatter alloc] init];
     [_formatter setDateFormat:@"dd/MM/yyyy --- HH:mm"];
+    
     [self refreshTitle];
 }
 
@@ -28,21 +33,28 @@
 }
 
 - (IBAction)touchedButton:(id)sender {
-    if(!self.datePicker)
+    if(!self.datePicker) {
         self.datePicker = [THDatePickerViewController datePicker];
+    }
+    
     self.datePicker.date = self.curDate;
     self.datePicker.delegate = self;
+    
     [self.datePicker setAllowClearDate:NO];
     [self.datePicker setClearAsToday:YES];
     [self.datePicker setAutoCloseOnSelectDate:NO];
     [self.datePicker setAllowSelectionOfSelectedDate:YES];
     [self.datePicker setDisableYearSwitch:YES];
-    //[self.datePicker setDisableFutureSelection:NO];
+    [self.datePicker setDisableFutureSelection:YES];
     [self.datePicker setDaysInHistorySelection:1];
     [self.datePicker setDaysInFutureSelection:0];
-//    [self.datePicker setAllowMultiDaySelection:YES];
-//    [self.datePicker setDateTimeZoneWithName:@"UTC"];
+    [self.datePicker setAllowMultiDaySelection:NO];
+    //    [self.datePicker setDateTimeZoneWithName:@"UTC"];
     //[self.datePicker setAutoCloseCancelDelay:5.0];
+    
+    
+
+    // Colors
     [self.datePicker setSelectedBackgroundColor:[UIColor colorWithRed:125/255.0 green:208/255.0 blue:0/255.0 alpha:1.0]];
     [self.datePicker setCurrentDateColor:[UIColor colorWithRed:242/255.0 green:121/255.0 blue:53/255.0 alpha:1.0]];
     [self.datePicker setCurrentDateColorSelected:[UIColor yellowColor]];
@@ -53,21 +65,16 @@
     }];
     
     [self presentViewController:self.datePicker animated:YES completion:nil];
-    //[self.datePicker slideUpInView:self.view withModalColor:[UIColor lightGrayColor]];
-//    [self presentSemiViewController:self.datePicker withOptions:@{
-//                                                                  KNSemiModalOptionKeys.pushParentBack    : @(NO),
-//                                                                  KNSemiModalOptionKeys.animationDuration : @(1.0),
-//                                                                  KNSemiModalOptionKeys.shadowOpacity     : @(0.3),
-//                                                                  }];
 }
 
 #pragma mark - THDatePickerDelegate
 
 - (void)datePickerDonePressed:(THDatePickerViewController *)datePicker {
+    
     self.curDate = datePicker.date;
     [self refreshTitle];
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+//    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)datePickerCancelPressed:(THDatePickerViewController *)datePicker {

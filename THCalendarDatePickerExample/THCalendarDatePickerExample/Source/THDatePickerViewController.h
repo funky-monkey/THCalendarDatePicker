@@ -31,19 +31,28 @@
 
 +(THDatePickerViewController *)datePicker;
 
-@property (strong, nonatomic) NSDate * date;
 @property (weak, nonatomic) id<THDatePickerDelegate> delegate;
+
+// Dates 'n stuff
+@property (strong, nonatomic) NSDate * date;
+@property (strong, nonatomic) NSTimeZone *dateTimeZone;
+@property (strong, nonatomic) NSString* dateTitle;
+@property (strong, nonatomic) NSArray * selectedDates;
+
+// Animation
+@property (nonatomic) float slideAnimationDuration;
+@property (nonatomic) float autoCloseCancelDelay;
+
+//Colors
 @property (strong, nonatomic) UIColor *selectedBackgroundColor;
 @property (strong, nonatomic) UIColor *currentDateColor;
 @property (strong, nonatomic) UIColor *currentDateColorSelected;
-@property (nonatomic) float autoCloseCancelDelay;
-@property (strong, nonatomic) NSTimeZone *dateTimeZone;
+
+
 @property (nonatomic, getter=isRounded) BOOL rounded;
 @property (nonatomic, getter=isHistoryFutureBasedOnInternal) BOOL historyFutureBasedOnInternal;
 @property (weak, nonatomic) IBOutlet UIView *toolbarBackgroundView;
-@property (nonatomic) float slideAnimationDuration;
-@property (strong, nonatomic) NSString* dateTitle;
-@property (strong, nonatomic) NSArray * selectedDates;
+
 
 - (void)setDateHasItemsCallback:(BOOL (^)(NSDate * date))callback;
 

@@ -48,7 +48,7 @@
 		2E23CF921CA0569D003AC60A /* THDatePickerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = THDatePickerViewController.h; path = Source/THDatePickerViewController.h; sourceTree = "<group>"; };
 		2E23CF931CA0569D003AC60A /* THDatePickerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = THDatePickerViewController.m; path = Source/THDatePickerViewController.m; sourceTree = "<group>"; };
 		2E23CF941CA0569D003AC60A /* THDatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = THDatePickerViewController.xib; path = Source/THDatePickerViewController.xib; sourceTree = "<group>"; };
-		99A02529198A40C100764326 /* THCalendarDatePickerExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = THCalendarDatePickerExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		99A02529198A40C100764326 /* THCalendarDatePicker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = THCalendarDatePicker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99A0252C198A40C100764326 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		99A0252E198A40C100764326 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		99A02530198A40C100764326 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -59,7 +59,7 @@
 		99A0253B198A40C100764326 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		99A0253C198A40C100764326 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		99A0253F198A40C100764326 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		99A0254A198A40C100764326 /* THCalendarDatePickerExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = THCalendarDatePickerExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		99A0254A198A40C100764326 /* THCalendarDatePickerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = THCalendarDatePickerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		99A0254B198A40C100764326 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		99A02553198A40C100764326 /* THCalendarDatePickerExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "THCalendarDatePickerExampleTests-Info.plist"; sourceTree = "<group>"; };
 		99A02555198A40C100764326 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -121,8 +121,8 @@
 		99A0252A198A40C100764326 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				99A02529198A40C100764326 /* THCalendarDatePickerExample.app */,
-				99A0254A198A40C100764326 /* THCalendarDatePickerExampleTests.xctest */,
+				99A02529198A40C100764326 /* THCalendarDatePicker.app */,
+				99A0254A198A40C100764326 /* THCalendarDatePickerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,9 +184,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		99A02528198A40C100764326 /* THCalendarDatePickerExample */ = {
+		99A02528198A40C100764326 /* THCalendarDatePicker */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 99A0255B198A40C100764326 /* Build configuration list for PBXNativeTarget "THCalendarDatePickerExample" */;
+			buildConfigurationList = 99A0255B198A40C100764326 /* Build configuration list for PBXNativeTarget "THCalendarDatePicker" */;
 			buildPhases = (
 				99A02525198A40C100764326 /* Sources */,
 				99A02526198A40C100764326 /* Frameworks */,
@@ -196,14 +196,14 @@
 			);
 			dependencies = (
 			);
-			name = THCalendarDatePickerExample;
+			name = THCalendarDatePicker;
 			productName = THCalendarDatePickerExample;
-			productReference = 99A02529198A40C100764326 /* THCalendarDatePickerExample.app */;
+			productReference = 99A02529198A40C100764326 /* THCalendarDatePicker.app */;
 			productType = "com.apple.product-type.application";
 		};
-		99A02549198A40C100764326 /* THCalendarDatePickerExampleTests */ = {
+		99A02549198A40C100764326 /* THCalendarDatePickerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 99A0255E198A40C100764326 /* Build configuration list for PBXNativeTarget "THCalendarDatePickerExampleTests" */;
+			buildConfigurationList = 99A0255E198A40C100764326 /* Build configuration list for PBXNativeTarget "THCalendarDatePickerTests" */;
 			buildPhases = (
 				99A02546198A40C100764326 /* Sources */,
 				99A02547198A40C100764326 /* Frameworks */,
@@ -214,9 +214,9 @@
 			dependencies = (
 				99A02550198A40C100764326 /* PBXTargetDependency */,
 			);
-			name = THCalendarDatePickerExampleTests;
+			name = THCalendarDatePickerTests;
 			productName = THCalendarDatePickerExampleTests;
-			productReference = 99A0254A198A40C100764326 /* THCalendarDatePickerExampleTests.xctest */;
+			productReference = 99A0254A198A40C100764326 /* THCalendarDatePickerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -246,8 +246,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				99A02528198A40C100764326 /* THCalendarDatePickerExample */,
-				99A02549198A40C100764326 /* THCalendarDatePickerExampleTests */,
+				99A02528198A40C100764326 /* THCalendarDatePicker */,
+				99A02549198A40C100764326 /* THCalendarDatePickerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -302,7 +302,7 @@
 /* Begin PBXTargetDependency section */
 		99A02550198A40C100764326 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 99A02528198A40C100764326 /* THCalendarDatePickerExample */;
+			target = 99A02528198A40C100764326 /* THCalendarDatePicker */;
 			targetProxy = 99A0254F198A40C100764326 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -492,7 +492,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		99A0255B198A40C100764326 /* Build configuration list for PBXNativeTarget "THCalendarDatePickerExample" */ = {
+		99A0255B198A40C100764326 /* Build configuration list for PBXNativeTarget "THCalendarDatePicker" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				99A0255C198A40C100764326 /* Debug */,
@@ -501,7 +501,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		99A0255E198A40C100764326 /* Build configuration list for PBXNativeTarget "THCalendarDatePickerExampleTests" */ = {
+		99A0255E198A40C100764326 /* Build configuration list for PBXNativeTarget "THCalendarDatePickerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				99A0255F198A40C100764326 /* Debug */,
