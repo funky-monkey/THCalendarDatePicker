@@ -74,6 +74,7 @@ static int FIRST_WEEKDAY = 2;
 @synthesize historyFutureBasedOnInternal = _historyFutureBasedOnInternal;
 @synthesize slideAnimationDuration = _slideAnimationDuration;
 @synthesize selectedDates = _selectedDates;
+@synthesize currentLocale = _currentLocale;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     
@@ -94,6 +95,8 @@ static int FIRST_WEEKDAY = 2;
         _selectedDates = [[NSMutableArray alloc] init];
         _selectedDateViews = [[NSMutableArray alloc] init];
         _allowMultiDaySelection = NO;
+        //
+        _currentLocale = [NSLocale currentLocale];
     }
     return self;
 }
@@ -294,7 +297,8 @@ static int FIRST_WEEKDAY = 2;
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     [formatter setCalendar:[NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian]];
     [formatter setDateFormat:(_disableYearSwitch ? @"MMMM yyyy" : @"yyyy\nMMMM")];
-    formatter.locale=[NSLocale currentLocale];
+    // Get currentLocale or user set locale
+    formatter.locale = _currentLocale;
     
     NSString *monthName = [formatter stringFromDate:self.firstOfCurrentMonth];
     self.monthLabel.text = [monthName uppercaseString];
@@ -313,30 +317,37 @@ static int FIRST_WEEKDAY = 2;
     [offsetComponents setDay:-_bufferDaysBeginning];
     
     NSDate * date = [_calendar dateByAddingComponents:offsetComponents toDate:self.firstOfCurrentMonth options:0];
+    
     [offsetComponents setDay:1];
     
-    UIView * container = self.calendarDaysView;
+    UIView *container = self.calendarDaysView;
     
     CGRect containerFrame = container.frame;
-    int areaWidth = containerFrame.size.width;
-    int areaHeight = containerFrame.size.height;
-    int cellWidth = areaWidth/7;
-    int cellHeight = areaHeight/_weeksOnCalendar;
-    int days = _weeksOnCalendar*7;
-    int curY = (areaHeight - cellHeight*_weeksOnCalendar)/2;
-    int origX = (areaWidth - cellWidth*7)/2;
+    
+    int offsetY = 7.0;
+    int offsetX = 7.0;
+    
+    int areaWidth = containerFrame.size.width - 4*offsetX;
+    int areaHeight = containerFrame.size.height- 2*offsetY;
+    
+    int cellWidth = (areaWidth / 7) + 1;
+    int cellHeight = (areaHeight / _weeksOnCalendar) - 2*offsetY + 3;
+    
+    int days = _weeksOnCalendar * 7;
+    int curY = ((areaHeight - cellHeight*_weeksOnCalendar) / 2);
+    int origX = ((areaWidth - cellWidth * 7) / 2);
     int curX = origX;
     
     [self redrawWeekdays:cellWidth];
     
     for(int i = 0; i < days; i++){
         // @beginning
-        if(i && !(i%7)) {
+        if(i && !(i % 7)) {
             curX = origX;
-            curY += cellHeight;
+            curY += cellHeight + offsetY;
         }
         
-        THDateDay * day = [[[NSBundle bundleForClass:self.class] loadNibNamed:@"THDateDay" owner:self options:nil] objectAtIndex:0];
+        THDateDay *day = [[[NSBundle bundleForClass:self.class] loadNibNamed:@"THDateDay" owner:self options:nil] objectAtIndex:0];
         
         if ([self isRounded]) {
             [day setDayCornersAreRounded:YES];
@@ -379,39 +390,41 @@ static int FIRST_WEEKDAY = 2;
         
         // @end
         date = [_calendar dateByAddingComponents:offsetComponents toDate:date options:0];
-        curX += cellWidth;
+        curX += cellWidth + offsetX;
     }
 }
 
 - (void)redrawWeekdays:(int)dayWidth {
     
+    int offsetX = 7;
+    
     if(!self.weekdaysView.subviews.count) {
         
         CGSize fullSize = self.weekdaysView.frame.size;
         
-        int curX = (fullSize.width - 7*dayWidth)/2;
+        int curX = ((fullSize.width - 7 * dayWidth) / 2) - 20;
         
-        NSDateComponents * comps = [_calendar components:NSCalendarUnitDay fromDate:[NSDate date]];
+        NSDateComponents *comps = [_calendar components:NSCalendarUnitDay fromDate:[NSDate date]];
         
         NSCalendar *c = [NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian];
-        [comps setDay:[c firstWeekday]-1];
+        [comps setDay:[c firstWeekday]];
         
         NSDateFormatter *df = [[NSDateFormatter alloc] init];
         
         NSDateComponents *offsetComponents = [[NSDateComponents alloc] init];
         [offsetComponents setDay:1];
         
-        [df setDateFormat:@"EE"];
+        [df setDateFormat:@"E"];
         
-        df.locale = [NSLocale currentLocale];
+        df.locale = _currentLocale;
         
         [df setCalendar:[NSCalendar calendarWithIdentifier:NSCalendarIdentifierGregorian]];
         
-        NSDate * date = [_calendar dateFromComponents:comps];
+        NSDate *date = [_calendar dateFromComponents:comps];
         
         for(int i = 0; i < 7; i++){
             
-            UILabel * dayLabel = [[UILabel alloc] initWithFrame:CGRectMake(curX, 0, dayWidth, fullSize.height)];
+            UILabel *dayLabel = [[UILabel alloc] initWithFrame:CGRectMake(curX, 0, dayWidth, fullSize.height)];
             dayLabel.textAlignment = NSTextAlignmentCenter;
             dayLabel.font = [UIFont systemFontOfSize:12];
             
@@ -422,7 +435,7 @@ static int FIRST_WEEKDAY = 2;
             
             date = [_calendar dateByAddingComponents:offsetComponents toDate:date options:0];
             
-            curX += dayWidth;
+            curX += dayWidth + offsetX;
         }
     }
 }
@@ -560,7 +573,7 @@ static int FIRST_WEEKDAY = 2;
         numberOfWeeks++;
     }
     
-    _weeksOnCalendar = 6;
+    _weeksOnCalendar = 5;
     _bufferDaysBeginning = bufferDaysBeginning;
     _daysInMonth = (int)days.length;
 }

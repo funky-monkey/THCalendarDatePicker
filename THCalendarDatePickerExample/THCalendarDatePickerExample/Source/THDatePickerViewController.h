@@ -38,6 +38,7 @@
 @property (strong, nonatomic) NSTimeZone *dateTimeZone;
 @property (strong, nonatomic) NSString* dateTitle;
 @property (strong, nonatomic) NSArray * selectedDates;
+@property (strong, nonatomic) NSLocale *currentLocale;
 
 // Animation
 @property (nonatomic) float slideAnimationDuration;

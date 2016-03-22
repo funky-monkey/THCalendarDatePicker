@@ -57,6 +57,7 @@
     [self.datePicker setSelectedBackgroundColor:[UIColor redColor]];
     [self.datePicker setCurrentDateColor:[UIColor redColor]];
     [self.datePicker setCurrentDateColorSelected:[UIColor whiteColor]];
+    [self.datePicker setCurrentLocale:[NSLocale localeWithLocaleIdentifier:@"nl_NL"]];
     
     [self.datePicker setDateHasItemsCallback:^BOOL(NSDate *date) {
         int tmp = (arc4random() % 30)+1;

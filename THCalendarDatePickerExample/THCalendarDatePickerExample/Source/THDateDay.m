@@ -24,7 +24,7 @@
     self = [super initWithFrame:frame];
     if (self) {
         // Initialization code
-        _selectedBackgroundColor = [UIColor colorWithRed:89/255.0 green:118/255.0 blue:169/255.0 alpha:1];
+        _selectedBackgroundColor = [UIColor redColor];
         _currentDateColor = [UIColor colorWithRed:242/255.0 green:121/255.0 blue:53/255.0 alpha:1.0];
         _currentDateColorSelected = [UIColor whiteColor];
         _rounded = NO;
@@ -37,7 +37,7 @@
     [super layoutSubviews];
     
     if ([self isRounded]) {
-        [self addMaskToBounds:self.frame];
+        [self drawShadow];
     }
 }
 
@@ -46,12 +46,13 @@
 -(void)setLightText:(BOOL)light {
     
     if(light) {
-        UIColor * color = [UIColor colorWithWhite:.84 alpha:1];
-        [self.dateButton setTitleColor:color forState:UIControlStateNormal];
-    } else {
-        UIColor * color = [UIColor colorWithWhite:.3 alpha:1];
-        [self.dateButton setTitleColor:color forState:UIControlStateNormal];
+        self.backgroundColor = [UIColor colorWithRed:242/255.0 green:238/255.0 blue:239/255.0 alpha:1.0];
+        self.layer.borderWidth = 0.5;
+        self.layer.borderColor = [UIColor colorWithRed:224/255.0 green:218/255.0 blue:219/255.0 alpha:0.8].CGColor;
     }
+    
+    [self.dateButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    
     [self setCurrentColors];
 }
 
@@ -65,12 +66,16 @@
         [self setBackgroundColor:self.selectedBackgroundColor];
         [self.dateButton setSelected:YES];
         [self.dateButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self drawShadow];
+        
     }
     else {
         [self setBackgroundColor:[UIColor whiteColor]];
+        
         [self.dateButton setSelected:NO];
         [self.dateButton setTitleColor:[UIColor colorWithWhite:.3 alpha:1] forState:UIControlStateNormal];
     }
+    
     [self setCurrentColors];
 }
 
@@ -92,6 +97,7 @@
     if (!enabled) {
         [self setLightText:!enabled];
     }
+    [self drawShadow];
 }
 
 - (BOOL)isToday {
@@ -109,24 +115,35 @@
 
 - (void) addMaskToBounds:(CGRect) maskBounds {
     
-    int minWidthHeight = MIN(maskBounds.size.width, maskBounds.size.height);
+//    self.bounds = CGRectInset(self.frame, 6.0, 6.0);
     
-    CGRect newFrame = CGRectMake(maskBounds.origin.x + ceil((maskBounds.size.width - minWidthHeight)/2.0), maskBounds.origin.y + ceil((maskBounds.size.height - minWidthHeight)/2.0), minWidthHeight, minWidthHeight);
-    NSLog(@"x: %f, y: %f, width: %f, height: %f", newFrame.origin.x, newFrame.origin.y, newFrame.size.width, newFrame.size.height);
+//    int minWidthHeight = MIN(maskBounds.size.width, maskBounds.size.height);
+//    
+//    CGRect newFrame = CGRectMake(maskBounds.origin.x + ceil((maskBounds.size.width - minWidthHeight)/2.0), maskBounds.origin.y + ceil((maskBounds.size.height - minWidthHeight)/2.0), minWidthHeight, minWidthHeight);
+//    NSLog(@"x: %f, y: %f, width: %f, height: %f", newFrame.origin.x, newFrame.origin.y, newFrame.size.width, newFrame.size.height);
+//    
+//    CGPathRef maskPath = CGPathCreateWithEllipseInRect(newFrame, NULL);
+//    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
+//    
+//    maskLayer.bounds = newFrame;
+//    maskLayer.path = maskPath;
+//    maskLayer.fillColor = [UIColor blackColor].CGColor;
+//    
+//    CGPathRelease(maskPath);
+//    
+//    CGPoint point = CGPointMake(maskBounds.size.width/2, maskBounds.size.height/2);
+//    maskLayer.position = point;
+//    
+//    [self.layer setMask:maskLayer];
+}
+
+- (void) drawShadow {
     
-    CGPathRef maskPath = CGPathCreateWithEllipseInRect(newFrame, NULL);
-    CAShapeLayer *maskLayer = [[CAShapeLayer alloc] init];
-    
-    maskLayer.bounds = newFrame;
-    maskLayer.path = maskPath;
-    maskLayer.fillColor = [UIColor blackColor].CGColor;
-    
-    CGPathRelease(maskPath);
-    
-    CGPoint point = CGPointMake(maskBounds.size.width/2, maskBounds.size.height/2);
-    maskLayer.position = point;
-    
-    [self.layer setMask:maskLayer];
+    self.layer.shadowColor = [UIColor lightGrayColor].CGColor;
+    self.layer.shadowOffset = CGSizeMake(2, 3);
+    self.layer.shadowOpacity = 0.3;
+    self.layer.shadowRadius = 4.0;
+    self.layer.cornerRadius = 4.0;
 }
 
 @end
