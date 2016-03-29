@@ -33,8 +33,9 @@
 
 - (IBAction)dateButtonTapped:(id)sender;
 
-- (void)setLightText:(BOOL)light;
-- (void)setSelected:(BOOL)selected;
-- (void)setEnabled:(BOOL)enabled;
+- (void) setLightText:(BOOL)light;
+- (void) setSelected:(BOOL)selected;
+- (void) setEnabled:(BOOL)enabled;
+- (void) setFontForDayButton:(UIFont *) font;
 
 @end

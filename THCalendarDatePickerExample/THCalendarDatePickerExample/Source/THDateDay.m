@@ -47,7 +47,7 @@
     
     if(light) {
         self.backgroundColor = [UIColor colorWithRed:242/255.0 green:238/255.0 blue:239/255.0 alpha:1.0];
-        self.layer.borderWidth = 0.5;
+        self.layer.borderWidth = 0.75;
         self.layer.borderColor = [UIColor colorWithRed:224/255.0 green:218/255.0 blue:219/255.0 alpha:0.8].CGColor;
     }
     
@@ -66,8 +66,6 @@
         [self setBackgroundColor:self.selectedBackgroundColor];
         [self.dateButton setSelected:YES];
         [self.dateButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [self drawShadow];
-        
     }
     else {
         [self setBackgroundColor:[UIColor whiteColor]];
@@ -98,6 +96,10 @@
         [self setLightText:!enabled];
     }
     [self drawShadow];
+}
+
+- (void) setFontForDayButton:(UIFont *) font {
+    self.dateButton.titleLabel.font = font;
 }
 
 - (BOOL)isToday {
@@ -141,7 +143,7 @@
     
     self.layer.shadowColor = [UIColor lightGrayColor].CGColor;
     self.layer.shadowOffset = CGSizeMake(2, 3);
-    self.layer.shadowOpacity = 0.3;
+    self.layer.shadowOpacity = 0.5;
     self.layer.shadowRadius = 4.0;
     self.layer.cornerRadius = 4.0;
 }

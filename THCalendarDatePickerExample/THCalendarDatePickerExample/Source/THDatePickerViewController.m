@@ -75,6 +75,10 @@ static int FIRST_WEEKDAY = 2;
 @synthesize slideAnimationDuration = _slideAnimationDuration;
 @synthesize selectedDates = _selectedDates;
 @synthesize currentLocale = _currentLocale;
+// Fonts
+@synthesize weekDayFont = _dayFont;
+@synthesize singleDayButtonFont = _singleDayButtonFont;
+@synthesize monthFont = _monthFont;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     
@@ -97,6 +101,9 @@ static int FIRST_WEEKDAY = 2;
         _allowMultiDaySelection = NO;
         //
         _currentLocale = [NSLocale currentLocale];
+        _dayFont = [UIFont systemFontOfSize:13];
+        _singleDayButtonFont = [UIFont systemFontOfSize:15];
+        _monthFont = [UIFont systemFontOfSize:13];
     }
     return self;
 }
@@ -166,6 +173,10 @@ static int FIRST_WEEKDAY = 2;
 
 - (void)setDisableYearSwitch:(BOOL)disableYearSwitch {
     _disableYearSwitch = disableYearSwitch;
+}
+
+-(void) setFontForMonthLabel:(UIFont *)font {
+    self.monthLabel.font = font;
 }
 
 #pragma mark - View Management
@@ -303,6 +314,10 @@ static int FIRST_WEEKDAY = 2;
     NSString *monthName = [formatter stringFromDate:self.firstOfCurrentMonth];
     self.monthLabel.text = [monthName uppercaseString];
     
+    if(_monthFont) {
+        [self setFontForMonthLabel:_monthFont];
+    }
+    
     if (self.dateTitle != nil && _allowClearDate == NO) {
         self.titleLabel.text = self.dateTitle;
         self.titleLabel.hidden = NO;
@@ -357,12 +372,18 @@ static int FIRST_WEEKDAY = 2;
         day.delegate = self;
         day.date = [date dateByAddingTimeInterval:0];
         
-        if (self.currentDateColor)
+        if (self.currentDateColor) {
             [day setCurrentDateColor:self.currentDateColor];
-        if (self.currentDateColorSelected)
+        }
+        if (self.currentDateColorSelected) {
             [day setCurrentDateColorSelected:self.currentDateColorSelected];
-        if (self.selectedBackgroundColor)
+        }
+        if (self.selectedBackgroundColor) {
             [day setSelectedBackgroundColor:self.selectedBackgroundColor];
+        }
+        if (self.singleDayButtonFont) {
+            [day setFontForDayButton:_singleDayButtonFont];
+        }
         
         if(!_allowMultiDaySelection) {
             if (_internalDate && ![[self dateWithOutTime:date] timeIntervalSinceDate:_internalDate]) {
@@ -426,7 +447,10 @@ static int FIRST_WEEKDAY = 2;
             
             UILabel *dayLabel = [[UILabel alloc] initWithFrame:CGRectMake(curX, 0, dayWidth, fullSize.height)];
             dayLabel.textAlignment = NSTextAlignmentCenter;
-            dayLabel.font = [UIFont systemFontOfSize:12];
+            
+            if(self.weekDayFont) {
+                dayLabel.font = _dayFont;
+            }
             
             [self.weekdaysView addSubview:dayLabel];
             

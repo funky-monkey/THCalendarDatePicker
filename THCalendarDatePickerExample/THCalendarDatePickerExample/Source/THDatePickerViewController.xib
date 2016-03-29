@@ -128,7 +128,7 @@
                                     <color key="backgroundColor" red="0.94901961088180542" green="0.93333333730697632" blue="0.93725490570068359" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="49">
-                                    <rect key="frame" x="10" y="113" width="285" height="270"/>
+                                    <rect key="frame" x="10" y="102" width="285" height="270"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="270" id="836-ft-HOp"/>
@@ -139,7 +139,7 @@
                                 <constraint firstAttribute="trailing" secondItem="49" secondAttribute="trailing" constant="25" id="2x3-ly-AOh"/>
                                 <constraint firstAttribute="width" constant="320" id="G5S-5U-Jba"/>
                                 <constraint firstItem="49" firstAttribute="leading" secondItem="s0u-MY-tL4" secondAttribute="leading" constant="10" id="NY0-1x-omY"/>
-                                <constraint firstAttribute="bottom" secondItem="49" secondAttribute="bottom" constant="7" id="vTz-Lr-jRB"/>
+                                <constraint firstAttribute="bottom" secondItem="49" secondAttribute="bottom" constant="18" id="vTz-Lr-jRB"/>
                             </constraints>
                         </view>
                     </subviews>

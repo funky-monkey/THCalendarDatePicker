@@ -49,6 +49,10 @@
 @property (strong, nonatomic) UIColor *currentDateColor;
 @property (strong, nonatomic) UIColor *currentDateColorSelected;
 
+//Fonts
+@property (nonatomic, strong) UIFont *weekDayFont;
+@property (nonatomic, strong) UIFont *singleDayButtonFont;
+@property (nonatomic, strong) UIFont *monthFont;
 
 @property (nonatomic, getter=isRounded) BOOL dayCornersAreRounded;
 @property (nonatomic, getter=isHistoryFutureBasedOnInternal) BOOL historyFutureBasedOnInternal;

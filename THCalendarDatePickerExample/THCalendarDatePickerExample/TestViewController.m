@@ -40,6 +40,11 @@
     self.datePicker.date = self.curDate;
     self.datePicker.delegate = self;
     
+    // Set fonts
+    [self.datePicker setWeekDayFont:[UIFont systemFontOfSize:15]];
+    [self.datePicker setSingleDayButtonFont:[UIFont systemFontOfSize:17]];
+    [self.datePicker setMonthFont:[UIFont systemFontOfSize:19]];
+    
     [self.datePicker setAllowClearDate:NO];
     [self.datePicker setClearAsToday:YES];
     [self.datePicker setAutoCloseOnSelectDate:NO];
@@ -47,7 +52,7 @@
     [self.datePicker setDisableYearSwitch:YES];
     [self.datePicker setDisableFutureSelection:YES];
     [self.datePicker setDaysInHistorySelection:1];
-    [self.datePicker setDaysInFutureSelection:0];
+    [self.datePicker setDaysInFutureSelection:90];
     [self.datePicker setAllowMultiDaySelection:NO];
     //    [self.datePicker setDateTimeZoneWithName:@"UTC"];
     //[self.datePicker setAutoCloseCancelDelay:5.0];
