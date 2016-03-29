@@ -92,6 +92,7 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="Jpp-kp-HO9" secondAttribute="trailing" id="IVJ-wh-h8u"/>
                 <constraint firstItem="Jpp-kp-HO9" firstAttribute="leading" secondItem="5" secondAttribute="leading" id="XhB-6E-W3s"/>
+                <constraint firstItem="Jpp-kp-HO9" firstAttribute="centerX" secondItem="5" secondAttribute="centerX" id="edS-7f-aLJ"/>
                 <constraint firstAttribute="bottom" secondItem="Jpp-kp-HO9" secondAttribute="bottom" id="hgJ-JC-x30"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
