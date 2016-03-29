@@ -6,14 +6,14 @@
 //  Copyright (c) 2014 3Bus. All rights reserved.
 //
 
-#import "TestViewController.h"
+#import "ViewController.h"
 
-@interface TestViewController ()
+@interface ViewController ()
 @property (nonatomic, retain) NSDate * curDate;
 @property (nonatomic, retain) NSDateFormatter * formatter;
 @end
 
-@implementation TestViewController
+@implementation ViewController
 
 - (void)viewDidLoad {
     
@@ -50,7 +50,7 @@
     [self.datePicker setDisableFutureSelection:YES];
     [self.datePicker setDaysInHistorySelection:1];
     [self.datePicker setDaysInFutureSelection:90];
-
+    
     // Colors
     [self.datePicker setSelectedBackgroundColor:[UIColor redColor]];
     [self.datePicker setCurrentDateColor:[UIColor redColor]];

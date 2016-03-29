@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:THCalendarDatePickerExample.xcodeproj">
+      location = "self:SDKCalendarDatePicker.xcodeproj">
    </FileRef>
 </Workspace>

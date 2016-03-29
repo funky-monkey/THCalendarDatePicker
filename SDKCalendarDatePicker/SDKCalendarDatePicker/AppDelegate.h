@@ -1,9 +1,9 @@
 //
 //  AppDelegate.h
-//  THCalendarDatePickerExample
+//  SDKCalendarDatePicker
 //
-//  Created by Hannes Tribus on 31/07/14.
-//  Copyright (c) 2014 3Bus. All rights reserved.
+//  Created by Sidney de Koning on 29/03/2016.
+//  Copyright © 2016 Sidney de Koning. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -12,4 +12,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+
 @end
+
