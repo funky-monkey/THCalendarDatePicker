@@ -28,7 +28,7 @@
                             <subviews>
                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="68">
                                     <rect key="frame" x="0.0" y="60" width="320" height="17"/>
-                                    <color key="backgroundColor" red="0.94901961088180542" green="0.93333333730697632" blue="0.93725490570068359" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="49">
                                     <rect key="frame" x="10" y="67" width="285" height="305"/>
@@ -80,7 +80,7 @@
                             </constraints>
                         </view>
                     </subviews>
-                    <color key="backgroundColor" red="0.94901961088180542" green="0.93333333730697632" blue="0.93725490570068359" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="centerX" secondItem="s0u-MY-tL4" secondAttribute="centerX" id="1tT-TN-bjo"/>
                         <constraint firstAttribute="height" constant="390" id="Arj-FB-Tcv"/>
