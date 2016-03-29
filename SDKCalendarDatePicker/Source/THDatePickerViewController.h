@@ -56,8 +56,6 @@
 
 @property (nonatomic, getter=isRounded) BOOL dayCornersAreRounded;
 @property (nonatomic, getter=isHistoryFutureBasedOnInternal) BOOL historyFutureBasedOnInternal;
-@property (weak, nonatomic) IBOutlet UIView *toolbarBackgroundView;
-
 
 - (void)setDateHasItemsCallback:(BOOL (^)(NSDate * date))callback;
 
