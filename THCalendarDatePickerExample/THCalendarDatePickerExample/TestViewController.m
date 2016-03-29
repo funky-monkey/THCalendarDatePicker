@@ -43,31 +43,19 @@
     // Set fonts
     [self.datePicker setWeekDayFont:[UIFont systemFontOfSize:15]];
     [self.datePicker setSingleDayButtonFont:[UIFont systemFontOfSize:17]];
-    [self.datePicker setMonthFont:[UIFont systemFontOfSize:19]];
+    [self.datePicker setMonthFont:[UIFont systemFontOfSize:13]];
     
-    [self.datePicker setAllowClearDate:NO];
-    [self.datePicker setClearAsToday:YES];
-    [self.datePicker setAutoCloseOnSelectDate:NO];
-    [self.datePicker setAllowSelectionOfSelectedDate:YES];
+    [self.datePicker setAutoCloseOnSelectDate:YES];
     [self.datePicker setDisableYearSwitch:YES];
     [self.datePicker setDisableFutureSelection:YES];
     [self.datePicker setDaysInHistorySelection:1];
     [self.datePicker setDaysInFutureSelection:90];
-    [self.datePicker setAllowMultiDaySelection:NO];
-    //    [self.datePicker setDateTimeZoneWithName:@"UTC"];
-    //[self.datePicker setAutoCloseCancelDelay:5.0];
-    [self.datePicker setDayCornersAreRounded:YES];
 
     // Colors
     [self.datePicker setSelectedBackgroundColor:[UIColor redColor]];
     [self.datePicker setCurrentDateColor:[UIColor redColor]];
     [self.datePicker setCurrentDateColorSelected:[UIColor whiteColor]];
     [self.datePicker setCurrentLocale:[NSLocale localeWithLocaleIdentifier:@"nl_NL"]];
-    
-    [self.datePicker setDateHasItemsCallback:^BOOL(NSDate *date) {
-        int tmp = (arc4random() % 30)+1;
-        return (tmp % 5 == 0);
-    }];
     
     [self presentViewController:self.datePicker animated:YES completion:nil];
 }
@@ -79,7 +67,11 @@
     self.curDate = datePicker.date;
     [self refreshTitle];
     
-//    [self dismissViewControllerAnimated:YES completion:nil];
+    [self performSelector:@selector(dismiss) withObject:nil afterDelay:0.5];
+}
+
+-(void) dismiss {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)datePickerCancelPressed:(THDatePickerViewController *)datePicker {
