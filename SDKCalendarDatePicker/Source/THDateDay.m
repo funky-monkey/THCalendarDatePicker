@@ -51,7 +51,7 @@
         self.layer.borderColor = [UIColor colorWithRed:224/255.0 green:218/255.0 blue:219/255.0 alpha:0.8].CGColor;
     }
     
-    [self.dateButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [self.dateButton setTitleColor:_currentDateColor forState:UIControlStateNormal];
     
     [self setCurrentColors];
 }
@@ -80,7 +80,7 @@
 - (void)setCurrentColors {
     
     if (self.currentDateColor && [self isToday]) {
-        [self.dateButton setTitleColor:self.currentDateColor forState:UIControlStateNormal];
+        [self.dateButton setTitleColor:_currentDateColor forState:UIControlStateNormal];
     }
     
     if (self.currentDateColorSelected && [self isToday]) {
