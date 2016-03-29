@@ -8,9 +8,9 @@ Pod::Spec.new do |s|
   s.source       		= { :git => "https://github.com/funky-monkey/THCalendarDatePicker.git", :tag => "{s.version}" }
   s.platform     		= :ios, '6.1'
   s.requires_arc 		= true
-  s.header_mappings_dir	= 'THCalendarDatePicker'
-  s.source_files 		= 'THCalendarDatePicker/*.{h,m}'
-  s.resources 	 		= ["THCalendarDatePicker/*.xib", "THCalendarDatePicker/Images.xcassets"]
+  s.header_mappings_dir	= 'THCalendarDatePickerExample'
+  s.source_files 		= 'THCalendarDatePickerExample/*.{h,m}'
+  s.resources 	 		= ["THCalendarDatePickerExample/*.xib", "THCalendarDatePickerExample/Images.xcassets"]
   s.frameworks   	 	=  'QuartzCore'
   s.prefix_header_contents = <<-EOS
 	  #define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
