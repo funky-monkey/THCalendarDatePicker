@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         		= "THCalendarDatePicker"
   s.version      		= "1.2.8"
-  s.summary      		= "A DatePicker based on SDKCalendarDatePicker based on a custom calendar view"
+  s.summary      		= "A DatePicker based on THCalendarDatePicker based on a custom calendar view"
   s.homepage     		= "https://github.com/funky-monkey/THCalendarDatePicker"
   s.license      		= { :type => 'MIT', :file => 'LICENSE.md' }
   s.author       		= { "Hannes Tribus" => "hons82@gmail.com", "Sidney de Koning" => "sidney.dekoning@gmail.com"}
