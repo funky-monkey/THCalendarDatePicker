@@ -146,6 +146,9 @@
     self.layer.shadowOpacity = 0.5;
     self.layer.shadowRadius = 4.0;
     self.layer.cornerRadius = 4.0;
+    
+    self.layer.rasterizationScale = [[UIScreen mainScreen] scale];
+    self.layer.shouldRasterize = YES;
 }
 
 @end
